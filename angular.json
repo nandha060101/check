@@ -1,0 +1,235 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "44de3ade-99f0-4bf8-87e2-c2e1dcbb6710"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "neosuite": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/neosuite",
+      "sourceRoot": "projects/neosuite/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/neosuite",
+            "index": "projects/neosuite/src/index.html",
+            "main": "projects/neosuite/src/main.ts",
+            "polyfills": "projects/neosuite/src/polyfills.ts",
+            "tsConfig": "projects/neosuite/tsconfig.app.json",
+            "assets": [
+              "projects/neosuite/src/favicon.ico",
+              "projects/neosuite/src/assets",
+              "projects/neosuite/src/manifest.webmanifest"
+            ],
+            "styles": [
+              "projects/neosuite/src/assets/themes/default.css",
+              "projects/neosuite/src/styles.css"
+            ],
+            "scripts": [
+              "./node_modules/materialize-css/dist/js/materialize.js"
+            ],
+            "serviceWorker": true,
+            "ngswConfigPath": "projects/neosuite/ngsw-config.json",
+            "extraWebpackConfig": "projects/neosuite/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "5mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/neosuite/src/environments/environment.ts",
+                  "with": "projects/neosuite/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/neosuite/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "neosuite:build:production",
+              "extraWebpackConfig": "projects/neosuite/webpack.prod.config.js"
+            },
+            "development": {
+              "browserTarget": "neosuite:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "extraWebpackConfig": "projects/neosuite/webpack.config.js",
+            "port": 4200
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "neosuite:build"
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/neosuite/src/test.ts",
+            "polyfills": "projects/neosuite/src/polyfills.ts",
+            "tsConfig": "projects/neosuite/tsconfig.spec.json",
+            "karmaConfig": "projects/neosuite/karma.conf.js",
+            "assets": [
+              "projects/neosuite/src/favicon.ico",
+              "projects/neosuite/src/assets",
+              "projects/neosuite/src/manifest.webmanifest"
+            ],
+            "styles": [
+              "projects/neosuite/src/styles.css"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/neosuite/webpack.config.js"
+          }
+        }
+      }
+    },
+    "filecomparisonutility": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/filecomparisonutility",
+      "sourceRoot": "projects/filecomparisonutility/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/filecomparisonutility",
+            "index": "projects/filecomparisonutility/src/index.html",
+            "main": "projects/filecomparisonutility/src/main.ts",
+            "polyfills": "projects/filecomparisonutility/src/polyfills.ts",
+            "tsConfig": "projects/filecomparisonutility/tsconfig.app.json",
+            "assets": [
+              "projects/filecomparisonutility/src/favicon.ico",
+              "projects/filecomparisonutility/src/assets",
+              "projects/filecomparisonutility/src/FileComparisonUtility"
+            ],
+            "styles": [
+              "projects/filecomparisonutility/src/styles.css"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/filecomparisonutility/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "5mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/filecomparisonutility/src/environments/environment.ts",
+                  "with": "projects/filecomparisonutility/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/filecomparisonutility/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "filecomparisonutility:build:production",
+              "extraWebpackConfig": "projects/filecomparisonutility/webpack.prod.config.js"
+            },
+            "development": {
+              "browserTarget": "filecomparisonutility:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "extraWebpackConfig": "projects/filecomparisonutility/webpack.config.js",
+            "port": 4400
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "filecomparisonutility:build",
+            "extraWebpackConfig": "projects/filecomparisonutility/webpack.config.js"
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/filecomparisonutility/src/test.ts",
+            "polyfills": "projects/filecomparisonutility/src/polyfills.ts",
+            "tsConfig": "projects/filecomparisonutility/tsconfig.spec.json",
+            "karmaConfig": "projects/filecomparisonutility/karma.conf.js",
+            "assets": [
+              "projects/filecomparisonutility/src/favicon.ico",
+              "projects/filecomparisonutility/src/assets",
+              "projects/filecomparisonutility/src/FileComparisonUtility"
+            ],
+            "styles": [
+              "projects/filecomparisonutility/src/styles.css"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/filecomparisonutility/webpack.config.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "neosuite"
+}

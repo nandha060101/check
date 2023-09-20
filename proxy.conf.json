@@ -1,0 +1,37 @@
+{
+	"/api/*": {
+		"target": "https://neosuitesitapis.neeyamo.works",
+		"secure": false,
+		"changeOrigin": true,
+		"logLevel": "debug"
+	},
+	"/publicApi/*": {
+		"target": "https://neosuitesitapis.neeyamo.works",
+		"secure": false,
+		"changeOrigin": true,
+		"logLevel": "debug"
+	},
+	"/listViewApi/*": {
+		"target": "https://listviewcomponentsit.neeyamo.works",
+		"secure": false,
+		"changeOrigin": true,
+		"logLevel": "debug"
+	},
+	"/listViewBasicApi/*": {
+		"target": "https://listviewcomponentsit.neeyamo.works",
+		"secure": false,
+		"changeOrigin": true,
+		"logLevel": "debug"
+	},
+	"/compareApi/*": {
+		"target": "http://localhost:8050",
+		"secure": false,
+		"logLevel": "debug"
+	},
+	"/FileComparisonUtility/FileComparisonUtility/*": {
+		"target": "http://localhost:4400",
+		"pathRewrite": {
+			"^/FileComparisonUtility": ""
+		}
+	}
+}
